@@ -1,16 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Realistic Saturn - p5.js</title>
-  
-  <!-- p5.js CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
-</head>
-<body style="margin:0; overflow:hidden; background:black;">
-  
-  <!-- Your sketch -->
-  <script src="sketch.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Planet Viewer</title>
 
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden; background: black">
+    <!-- Planet selector -->
+    <div id="planetBar">
+      <span data-planet="mercury">Mercury</span>
+      <span data-planet="venus">Venus</span>
+      <span data-planet="earth">Earth</span>
+      <span data-planet="mars">Mars</span>
+      <span data-planet="jupiter" class="active">Jupiter</span>
+      <span data-planet="saturn">Saturn</span>
+      <span data-planet="uranus">Uranus</span>
+      <span data-planet="nepture">Neptune</span>
+    </div>
+
+    <style>
+      #planetBar {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-family: sans-serif;
+        z-index: 10;
+      }
+
+      #planetBar span {
+        margin: 0 12px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: 0.2s;
+      }
+
+      #planetBar span:hover {
+        opacity: 1;
+      }
+
+      #planetBar .active {
+        opacity: 1;
+        border-bottom: 2px solid white;
+      }
+    </style>
+
+    <script src="controls.js"></script>
+    <script src="sketch.js"></script>
+  </body>
 </html>

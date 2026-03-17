@@ -1,11 +1,18 @@
 let PlanetX;
 
 function preload() {
-  PlanetX = loadImage("assets/jupiter.jpg");
+  PlanetX = loadImage(window.currentPlanetPath || "assets/jupiter.jpg");
 }
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight, WEBGL);
+
+  // expose function to update texture dynamically
+  window.updatePlanetTexture = function (path) {
+    loadImage(path, (img) => {
+      PlanetX = img;
+    });
+  };
 }
 
 function draw() {
